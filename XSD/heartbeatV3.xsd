@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="StatusReportV3" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:element name="StatusReport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="timestamp" type="xs:dateTime" minOccurs="1" />
+        <xs:element name="sourceID" type="xs:int" minOccurs="1" />
+        <xs:element name="reportID" type="xs:long" minOccurs="1" />
+        <xs:element name="system" type="xs:string" minOccurs="0" />
+        <xs:element name="info" type="xs:string" minOccurs="0" />
+        <xs:element name="activeTaskID" type="xs:int" minOccurs="0" />
+        <xs:element name="mode" type="xs:string" minOccurs="0" />
+        <xs:element name="power" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:attribute name="source" type="xs:string" />
+            <xs:attribute name="status" type="xs:string" />
+            <xs:attribute name="level" type="xs:int" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="sensorLocation" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="location" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="fieldOfView" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="locationList" minOccurs="0" maxOccurs="1" />
+              <xs:element ref="rangeBearingCone" minOccurs="0" maxOccurs="1" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="coverage" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="locationList" minOccurs="0" maxOccurs="1" />
+              <xs:element ref="rangeBearingCone" minOccurs="0" maxOccurs="1" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="obscuration" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="locationList" minOccurs="0" maxOccurs="1" />
+              <xs:element ref="rangeBearingCone" minOccurs="0" maxOccurs="1" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+		<xs:element name="statusRegion" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="type" type="xs:string" minOccurs="1" />
+              <xs:element name="regionID" type="xs:int" minOccurs="1" />
+              <xs:element name="regionName" type="xs:string" minOccurs="1" />
+              <xs:element name="regionStatus" type="xs:string" minOccurs="0" />
+              <xs:element name="description" type="xs:string" minOccurs="0" />
+              <xs:element ref="locationList" minOccurs="0" maxOccurs="1" />
+              <xs:element ref="rangeBearingCone" minOccurs="0" maxOccurs="1" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+	        <xs:element name="sensorVelocity" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="location" minOccurs="0" maxOccurs="1" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>	
+        <xs:element name="status" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:attribute name="level" type="xs:string" />
+            <xs:attribute name="type" type="xs:string" />
+            <xs:attribute name="value" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StatusReportV3" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="location" />
+        <xs:element ref="locationList" />
+        <xs:element ref="rangeBearingCone" />
+        <xs:element ref="StatusReport" />
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

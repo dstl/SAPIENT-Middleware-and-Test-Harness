@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="SensorTaskAckV3" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:element name="SensorTaskACK">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="timestamp" type="xs:dateTime" minOccurs="1" />
+        <xs:element name="sensorID" type="xs:int" minOccurs="1" />
+        <xs:element name="taskID" type="xs:int" minOccurs="1" />
+        <xs:element name="status" type="xs:string" minOccurs="1" />
+        <xs:element name="reason" type="xs:string" minOccurs="0" />
+		<xs:element name="associatedFile" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:attribute name="type" type="xs:string" use="required" />
+            <xs:attribute name="url" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>		
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SensorTaskAckV3" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="SensorTaskACK" />
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

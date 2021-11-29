@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="V3Schema" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:include schemaLocation="locationV3.xsd" />
+  <xs:include schemaLocation="detectionV3.xsd" />
+  <xs:include schemaLocation="taskV3.xsd" />
+  <xs:include schemaLocation="heartbeatV3.xsd" />
+  <xs:include schemaLocation="Error.xsd" />
+  <xs:include schemaLocation="registrationV3.xsd" />
+  <xs:include schemaLocation="alert.xsd" />
+  <xs:include schemaLocation="alertResponse.xsd" />
+  <xs:include schemaLocation="SensorTaskACK.xsd" />
+  <xs:include schemaLocation="SensorRegistrationACK.xsd" />
+</xs:schema>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="AlertResponseV3" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:element name="AlertResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="timestamp" type="xs:dateTime" minOccurs="1" />
+        <xs:element name="sourceID" type="xs:int" minOccurs="1" />
+        <xs:element name="alertID" type="xs:int" minOccurs="1" />
+        <xs:element name="status" type="xs:string" minOccurs="1" />
+        <xs:element name="reason" type="xs:string" minOccurs="0" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AlertResponseV3" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="AlertResponse" />
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

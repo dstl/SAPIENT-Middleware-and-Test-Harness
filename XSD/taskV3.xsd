@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="SensorTaskV3" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:element name="parameter">
+    <xs:complexType>
+      <xs:attribute name="name" type="xs:string" />
+      <xs:attribute name="operator" type="xs:string" />
+      <xs:attribute name="value" type="xs:float" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="subClassFilter">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="parameter" minOccurs="0" maxOccurs="1" />
+        <xs:element ref="subClassFilter" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+      <xs:attribute name="level" type="xs:int" />
+      <xs:attribute name="type" type="xs:string" />
+      <xs:attribute name="value" type="xs:string" />
+	  <xs:attribute name="priority" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SensorTask">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="timestamp" type="xs:dateTime" minOccurs="1" />
+        <xs:element name="sensorID" type="xs:int" minOccurs="1" />
+        <xs:element name="taskID" type="xs:int" minOccurs="1" />
+        <xs:element name="taskName" type="xs:string" minOccurs="0" />
+        <xs:element name="taskDescription" type="xs:string" minOccurs="0" />
+        <xs:element name="taskStartTime" type="xs:dateTime" minOccurs="0" />
+        <xs:element name="taskEndTime" type="xs:dateTime" minOccurs="0" />
+        <xs:element name="control" type="xs:string" minOccurs="1" />
+        <xs:element name="region" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="type" type="xs:string" minOccurs="1" />
+              <xs:element name="regionID" type="xs:int" minOccurs="1" />
+              <xs:element name="regionName" type="xs:string" minOccurs="1" />
+              <xs:element ref="locationList" minOccurs="0" maxOccurs="1" />
+              <xs:element ref="rangeBearingCone" minOccurs="0" maxOccurs="1" />
+              <xs:element name="classFilter" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element ref="parameter" minOccurs="0" maxOccurs="1" />
+                    <xs:element ref="subClassFilter" minOccurs="0" maxOccurs="unbounded" />
+                  </xs:sequence>
+                  <xs:attribute name="type" type="xs:string" />
+                  <xs:attribute name="priority" type="xs:string" />				  
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="behaviourFilter" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element ref="parameter" minOccurs="1" maxOccurs="1" />
+                  </xs:sequence>
+                  <xs:attribute name="type" type="xs:string" />
+                  <xs:attribute name="priority" type="xs:string" />				  				  
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="command" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+			  <xs:element name="sensorID" type="xs:int" minOccurs="0" maxOccurs="1"/>
+			  <xs:element name="objectID" type="xs:long" minOccurs="0" maxOccurs="1" />				
+              <xs:element name="request" type="xs:string" minOccurs="0" />
+              <xs:element name="detectionThreshold" type="xs:string" minOccurs="0" />
+              <xs:element name="detectionReportRate" type="xs:string" minOccurs="0" />
+              <xs:element name="classificationThreshold" type="xs:string" minOccurs="0" />
+              <xs:element name="mode" type="xs:string" minOccurs="0" />
+              <xs:element name="lookAt" minOccurs="0" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element ref="locationList" minOccurs="0" maxOccurs="1" />
+                    <xs:element ref="rangeBearingCone" minOccurs="0" maxOccurs="1" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="lookFor" minOccurs="0" maxOccurs="1">
+                <xs:complexType>
+                  <xs:attribute name="type" type="xs:string" />
+                  <xs:attribute name="url" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SensorTaskV3" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="locationList" />
+        <xs:element ref="rangeBearingCone" />
+        <xs:element ref="parameter" />
+        <xs:element ref="subClassFilter" />
+        <xs:element ref="SensorTask" />
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F6812F94-A231-4B1C-BB27-2E10402F593B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SapientDatabase</RootNamespace>
+    <AssemblyName>SapientDatabase</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>.\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Security">
+      <HintPath>.\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql">
+      <HintPath>.\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Database.cs" />
+    <Compile Include="DatabaseCreator.cs" />
+    <Compile Include="DatabaseTables\AlertConstants.cs" />
+    <Compile Include="DatabaseTables\AlertQueries.cs" />
+    <Compile Include="DatabaseTables\AlertTableCreator.cs" />
+    <Compile Include="DatabaseTables\DatabaseUtil.cs" />
+    <Compile Include="DatabaseTables\DetectionConstants.cs" />
+    <Compile Include="DatabaseTables\DetectionQueries.cs" />
+    <Compile Include="DatabaseTables\DetectionTableCreator.cs" />
+    <Compile Include="DatabaseTables\ObjectiveConstants.cs" />
+    <Compile Include="DatabaseTables\ObjectiveQueries.cs" />
+    <Compile Include="DatabaseTables\ObjectiveTableCreator.cs" />
+    <Compile Include="DatabaseTables\RegistrationQueries.cs" />
+    <Compile Include="DatabaseTables\RoutePlanConstants.cs" />
+    <Compile Include="DatabaseTables\RoutePlanQueries.cs" />
+    <Compile Include="DatabaseTables\RoutePlanTableCreator.cs" />
+    <Compile Include="DatabaseTables\SensorLocationOffsetConstants.cs" />
+    <Compile Include="DatabaseTables\SensorLocationOffsetTableCreator.cs" />
+    <Compile Include="DatabaseTables\StatusReportConstants.cs" />
+    <Compile Include="DatabaseTables\StatusReportInsertQueries.cs" />
+    <Compile Include="DatabaseTables\StatusReportTableCreator.cs" />
+    <Compile Include="DatabaseTables\TaskAckQueries.cs" />
+    <Compile Include="DatabaseTables\TaskConstants.cs" />
+    <Compile Include="DatabaseTables\TaskingTablesCreator.cs" />
+    <Compile Include="DatabaseTables\TaskQueries.cs" />
+    <Compile Include="MiddlewareLogDatabase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Inter Process Communications\SapientComms\SapientServicesV3\SapientServices.csproj">
+      <Project>{9d6bd18a-2abb-4ef8-9e54-cc11a9b78d6e}</Project>
+      <Name>SapientServices</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

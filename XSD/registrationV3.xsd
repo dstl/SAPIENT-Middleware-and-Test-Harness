@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="SensorRegistrationV3" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:element name="locationType" nillable="true">
+    <xs:complexType>
+      <xs:simpleContent msdata:ColumnName="locationType_Text" msdata:Ordinal="4">
+        <xs:extension base="xs:string">
+          <xs:attribute name="units" type="xs:string" use="required" />
+          <xs:attribute name="datum" type="xs:string" />
+          <xs:attribute name="zone" type="xs:string" />
+          <xs:attribute name="north" type="xs:string" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="settleTime">
+    <xs:complexType>
+      <xs:attribute name="units" type="xs:string" use="required" />
+      <xs:attribute name="value" type="xs:int" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="performanceValue">
+    <xs:complexType>
+      <xs:attribute name="type" type="xs:string" use="required" />
+      <xs:attribute name="value" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="confidence">
+    <xs:complexType>
+      <xs:attribute name="units" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="subClassDefinition">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="confidence" minOccurs="0" maxOccurs="1" />
+        <xs:element ref="subClassDefinition" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+      <xs:attribute name="level" type="xs:int" use="required" />
+      <xs:attribute name="type" type="xs:string" use="required" />
+      <xs:attribute name="values" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="filterParameter">
+    <xs:complexType>
+      <xs:attribute name="name" type="xs:string" use="required" />
+      <xs:attribute name="operators" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="subClassFilterDefinition">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="filterParameter" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element ref="subClassFilterDefinition" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+      <xs:attribute name="level" type="xs:int" use="required" />
+      <xs:attribute name="type" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SensorRegistration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="timestamp" type="xs:dateTime" minOccurs="1" />
+        <xs:element name="sensorID" type="xs:int" minOccurs="0" />
+        <xs:element name="sensorType" type="xs:string" minOccurs="1" maxOccurs="1" />
+	    <xs:element name="platformType" type="xs:string" minOccurs="0" maxOccurs="1" />	
+        <xs:element name="heartbeatDefinition" minOccurs="1" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="heartbeatInterval" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:attribute name="units" type="xs:string"  use="required" />
+                  <xs:attribute name="value" type="xs:int"  use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="sensorLocationDefinition" minOccurs="0" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element ref="locationType" minOccurs="1" maxOccurs="1" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="fieldOfViewDefinition" minOccurs="0" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element ref="locationType" minOccurs="1" maxOccurs="1" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="coverageDefinition" minOccurs="0" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element ref="locationType" minOccurs="1" maxOccurs="1" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="obscurationDefinition" minOccurs="0" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element ref="locationType" minOccurs="1" maxOccurs="1" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="heartbeatReport" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="category" type="xs:string" use="required" />
+                  <xs:attribute name="type" type="xs:string" use="required" />
+                  <xs:attribute name="units" type="xs:string" />
+                  <xs:attribute name="onChange" type="xs:boolean" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="modeDefinition" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="modeName" type="xs:string" minOccurs="1" msdata:Ordinal="0" />
+              <xs:element name="modeDescription" type="xs:string" minOccurs="0" msdata:Ordinal="1" />
+              <xs:element ref="settleTime" minOccurs="1" maxOccurs="1" msdata:Ordinal="2" />
+              <xs:element name="maximumLatency" minOccurs="0" maxOccurs="1" msdata:Ordinal="3" >
+                <xs:complexType>
+                  <xs:attribute name="units" type="xs:string" use="required" />
+                  <xs:attribute name="value" type="xs:int" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="scanType" type="xs:string" minOccurs="0" msdata:Ordinal="4" />
+              <xs:element name="trackingType" type="xs:string" minOccurs="0" msdata:Ordinal="5" />
+              <xs:element name="duration" minOccurs="0" maxOccurs="1">
+                <xs:complexType>
+                  <xs:attribute name="units" type="xs:string" use="required" />
+                  <xs:attribute name="value" type="xs:int" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="modeParameter" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="type" type="xs:string" use="required" />
+                  <xs:attribute name="value" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="detectionDefinition" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element ref="locationType" minOccurs="1" maxOccurs="1" />
+                    <xs:element name="geometricError" minOccurs="0" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element ref="performanceValue" minOccurs="0" maxOccurs="unbounded" />
+                        </xs:sequence>
+                        <xs:attribute name="type" type="xs:string"  use="required" />
+                        <xs:attribute name="units" type="xs:string"  use="required" />
+                        <xs:attribute name="variationType" type="xs:string"  use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="detectionReport" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:attribute name="category" type="xs:string" use="required" />
+                        <xs:attribute name="type" type="xs:string" use="required" />
+                        <xs:attribute name="units" type="xs:string" use="required" />
+                        <xs:attribute name="onChange" type="xs:boolean" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="detectionPerformance" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element ref="performanceValue" minOccurs="0" maxOccurs="unbounded" />
+                        </xs:sequence>
+                        <xs:attribute name="type" type="xs:string" use="required" />
+                        <xs:attribute name="units" type="xs:string" use="required" />
+                        <xs:attribute name="unitValue" type="xs:string" use="required" />
+                        <xs:attribute name="variationType" type="xs:string" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="detectionClassDefinition" minOccurs="0" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:sequence>
+					      <xs:element name="confidenceDefinition" type="xs:string" minOccurs="0" />
+                          <xs:element name="confusionMatrix" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:attribute name="type" type="xs:string" />
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="classPerformance" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element ref="performanceValue" minOccurs="0" maxOccurs="unbounded" />
+                              </xs:sequence>
+                              <xs:attribute name="type" type="xs:string" use="required" />
+                              <xs:attribute name="units" type="xs:string" use="required" />
+                              <xs:attribute name="unitValue" type="xs:string" use="required" />
+                              <xs:attribute name="variationType" type="xs:string" use="required" />
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="classDefinition" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element ref="confidence" minOccurs="0" maxOccurs="1" />
+                                <xs:element ref="subClassDefinition" minOccurs="0" maxOccurs="unbounded" />
+                              </xs:sequence>
+                              <xs:attribute name="type" type="xs:string" />
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+				    <xs:element name="behaviourDefinition" minOccurs="0" maxOccurs="unbounded">
+					  <xs:complexType>
+					    <xs:sequence>
+						  <xs:element ref="confidence" minOccurs="0" maxOccurs="1" />
+					    </xs:sequence>
+						<xs:attribute name="type" type="xs:string" />
+					  </xs:complexType>
+				    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="taskDefinition" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="concurrentTasks" type="xs:int" minOccurs="0" />
+                    <xs:element name="regionDefinition" minOccurs="0" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="regionType" nillable="true" minOccurs="1" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:simpleContent msdata:ColumnName="regionType_Text" msdata:Ordinal="0">
+                                <xs:extension base="xs:string">
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element ref="settleTime" minOccurs="0" maxOccurs="1" />
+                          <xs:element ref="locationType" minOccurs="1" maxOccurs="1" />
+                          <xs:element name="classFilterDefinition" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element ref="filterParameter" minOccurs="0" maxOccurs="unbounded" />
+                                <xs:element ref="subClassFilterDefinition" minOccurs="0" maxOccurs="unbounded" />
+                              </xs:sequence>
+                              <xs:attribute name="type" type="xs:string" />
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="behaviourFilterDefinition" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element ref="filterParameter" minOccurs="0" maxOccurs="unbounded" />
+                              </xs:sequence>
+                              <xs:attribute name="type" type="xs:string" />
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="command" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:attribute name="name" type="xs:string" use="required" />
+                        <xs:attribute name="units" type="xs:string" use="required" />
+                        <xs:attribute name="completionTime" type="xs:int" use="required" />
+                        <xs:attribute name="completionTimeUnits" type="xs:string" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="type" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SensorRegistrationV3" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="locationType" />
+        <xs:element ref="settleTime" />
+        <xs:element ref="performanceValue" />
+        <xs:element ref="confidence" />
+        <xs:element ref="subClassDefinition" />
+        <xs:element ref="filterParameter" />
+        <xs:element ref="subClassFilterDefinition" />
+        <xs:element ref="SensorRegistration" />
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

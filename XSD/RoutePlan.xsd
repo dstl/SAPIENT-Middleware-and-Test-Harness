@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="RoutePlan" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:include schemaLocation="location.xsd" />
+  <xs:element name="RoutePlan">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="timestamp" type="xs:dateTime" minOccurs="1" />
+        <xs:element name="sensorID" type="xs:int" minOccurs="1" />
+        <xs:element name="taskID" type="xs:int" minOccurs="0" />
+        <xs:element name="objectiveID" type="xs:int" minOccurs="0" />
+        <xs:element name="routeName" type="xs:string" minOccurs="0" />
+        <xs:element name="routeDescription" type="xs:string" minOccurs="0" />
+        <xs:element name="eta" type="xs:dateTime" minOccurs="0" />
+        <xs:element name="status" type="xs:string" minOccurs="0" />		
+        <xs:element ref="locationList" minOccurs="1" maxOccurs="1" />
+        <xs:element name="fieldOfView" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="locationList" minOccurs="0" maxOccurs="1" />
+              <xs:element ref="rangeBearingCone" minOccurs="0" maxOccurs="1" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

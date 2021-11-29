@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="LocationV3" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:element name="location">
+    <xs:complexType>
+      <xs:sequence>
+		  <xs:element name="X" type="xs:double" minOccurs="1" />
+		  <xs:element name="Y" type="xs:double" minOccurs="1" />
+		  <xs:element name="Z" type="xs:double" minOccurs="0" />
+		  <xs:element name="eX" type="xs:double" minOccurs="0" />
+		  <xs:element name="eY" type="xs:double" minOccurs="0" />
+		  <xs:element name="eZ" type="xs:double" minOccurs="0" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="locationList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="location" minOccurs="0" maxOccurs="unbounded" />
+		<xs:element name="dummy" type="xs:string" minOccurs="0" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="rangeBearing">
+    <xs:complexType>
+      <xs:sequence>
+		  <xs:element name="R" type="xs:double" minOccurs="1" />
+		  <xs:element name="Az" type="xs:double" minOccurs="1" />
+		  <xs:element name="Ele" type="xs:double" minOccurs="0" />
+		  <xs:element name="Z" type="xs:double" minOccurs="0" />
+		  <xs:element name="eR" type="xs:double" minOccurs="0" />
+		  <xs:element name="eAz" type="xs:double" minOccurs="0" />
+		  <xs:element name="eEle" type="xs:double" minOccurs="0" />
+		  <xs:element name="eZ" type="xs:double" minOccurs="0" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="rangeBearingCone">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="R" type="xs:double" minOccurs="1" />
+        <xs:element name="Az" type="xs:double" minOccurs="1" />
+        <xs:element name="Ele" type="xs:double" minOccurs="0" />
+        <xs:element name="hExtent" type="xs:double" minOccurs="1" />
+        <xs:element name="vExtent" type="xs:double" minOccurs="0" />
+        <xs:element name="minR" type="xs:double" minOccurs="0" />		
+        <xs:element name="eR" type="xs:double" minOccurs="0" />
+        <xs:element name="eAz" type="xs:double" minOccurs="0" />
+        <xs:element name="eEle" type="xs:double" minOccurs="0" />
+        <xs:element name="ehExtent" type="xs:double" minOccurs="0" />
+        <xs:element name="evExtent" type="xs:double" minOccurs="0" />
+        <xs:element name="eminR" type="xs:double" minOccurs="0" />		
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

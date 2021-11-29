@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="detectionV3" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:include schemaLocation="locationV3.xsd" />
+  <xs:element name="subClass">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="confidence" type="xs:float" minOccurs="0" msdata:Ordinal="0" />
+        <xs:element ref="subClass" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+      <xs:attribute name="level" type="xs:int" />
+      <xs:attribute name="type" type="xs:string" />
+      <xs:attribute name="value" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DetectionReport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="timestamp" type="xs:dateTime" minOccurs="1" />
+        <xs:element name="sourceID" type="xs:int" minOccurs="1" />
+        <xs:element name="reportID" type="xs:long" minOccurs="1" />
+        <xs:element name="objectID" type="xs:long" minOccurs="1" />
+        <xs:element name="taskID" type="xs:int" minOccurs="1" />
+        <xs:element name="detectionSensorID" type="xs:long" minOccurs="0" />		
+        <xs:element name="state" type="xs:string" minOccurs="0" />
+        <xs:element ref="location" minOccurs="0" maxOccurs="1" />
+        <xs:element ref="rangeBearing" minOccurs="0" maxOccurs="1" />
+        <xs:element name="detectionConfidence" type="xs:float" minOccurs="0" />
+        <xs:element name="trackInfo" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:attribute name="type" type="xs:string" use="required" />
+            <xs:attribute name="value" type="xs:float" use="required" />
+            <xs:attribute name="e" type="xs:float" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="predictedLocation" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="location" minOccurs="0" maxOccurs="1" />
+              <xs:element ref="rangeBearing" minOccurs="0" maxOccurs="1" />
+			  <xs:element name="predictionTimestamp" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="objectInfo" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:attribute name="type" type="xs:string" use="required" />
+            <xs:attribute name="value" type="xs:float" use="required" />
+            <xs:attribute name="e" type="xs:float" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="colour" type="xs:string" minOccurs="0" />
+        <xs:element name="class" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="confidence" type="xs:float" minOccurs="0" msdata:Ordinal="0" />
+              <xs:element ref="subClass" minOccurs="0" maxOccurs="unbounded" />
+            </xs:sequence>
+            <xs:attribute name="type" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="behaviour" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="confidence" type="xs:float" minOccurs="0" msdata:Ordinal="0" />
+            </xs:sequence>
+            <xs:attribute name="type" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="associatedFile" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:attribute name="type" type="xs:string" use="required" />
+            <xs:attribute name="url" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="affiliation" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:attribute name="type" type="xs:string" />
+          </xs:complexType>
+        </xs:element>        
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="detectionV3" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="location" />
+        <xs:element ref="rangeBearing" />
+        <xs:element ref="subClass" />
+        <xs:element ref="DetectionReport" />
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
