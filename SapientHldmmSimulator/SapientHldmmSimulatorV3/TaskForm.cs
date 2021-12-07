@@ -223,46 +223,55 @@ namespace SapientHldmmSimulator
         /// <param name="e">The parameter is not used.</param>
         private void SendTaskClick(object sender, EventArgs e)
         {
-            SendCommand(false, 1);
+            int sensorId = int.Parse(Sensor_input.Text);
+            SendCommandOpenDialog(false, sensorId);
         }
 
         /// <summary>
         /// Open PTZ dislog and select command to send
         /// </summary>
         /// <param name="ptzCommand"></param>
-        private void SendCommand(bool ptzCommand, int numSensors)
+        private void SendCommandOpenDialog(bool ptzCommand, int sensorId)
         {
-            PTZForm ptzform = new PTZForm(ptzCommand);
+            PTZForm ptzform = new PTZForm(ptzCommand, sensorId, this);
             DialogResult result = ptzform.ShowDialog();
             if (result == DialogResult.OK)
             {
-                int sensorId = int.Parse(Sensor_input.Text);
+                SendCommand(PTZForm.SensorID, ptzform.command.Text);
+            }
+        }
 
-                if (ptzform.command.Text == "lookAt")
-                {
-                    this.lookAtTaskGenerator.GeneratePTZTask(PTZForm.Az, PTZForm.Elevation, ptzform.SendAsPTZ.Checked, double.Parse(ptzform.Zoom_txt.Text), messenger, sensorId, numSensors);
-                }
-                else if (ptzform.command.Text == "lookAt-XY")
-                {
-                    double x = Properties.Settings.Default.startLongitude; /// TODO Add PTZForm.XValue1;
-                    double y = Properties.Settings.Default.startLatitude; //// TODO Add PTZForm.YValue1;
-                    double z = 0; //// TODO Add PTZForm.ZValue1;
-                    bool useZ = false; // TODO Add PTZForm.UseZ;
-                    this.xyzLookAtTaskGenerator.GenerateXYZLookAtTask(x, y, z, useZ, messenger, sensorId, numSensors);
-                }
-                else if (ptzform.command.Text == "region")
-                {
-                    double x = Properties.Settings.Default.startLongitude; /// TODO Add PTZForm.XValue1;
-                    double y = Properties.Settings.Default.startLatitude; //// TODO Add PTZForm.YValue1;
-                    double z = 0; //// TODO Add PTZForm.ZValue1;
-                    bool useZ = false; // TODO Add PTZForm.UseZ;
-                    this.regionTaskGenerator.Generate(x, y, z, useZ, messenger, sensorId, numSensors);
-                }
-                else
-                {
-                    SendTaskLoop(ptzform.command.Text, sensorId, numSensors);
-                }
+        /// <summary>
+        /// send command
+        /// </summary>
+        public void SendCommand(int sensorId, string command)
+        {
+            int numSensors = 1;
+            sensorId = PTZForm.SensorID;
 
+            if (command == "lookAt")
+            {
+                this.lookAtTaskGenerator.GeneratePTZTask(PTZForm.Az, PTZForm.Elevation, PTZForm.PTZ, PTZForm.Zoom, messenger, sensorId, numSensors);
+            }
+            else if (command == "lookAt-XY")
+            {
+                double x = Properties.Settings.Default.startLongitude; /// TODO Add PTZForm.XValue1;
+                double y = Properties.Settings.Default.startLatitude; //// TODO Add PTZForm.YValue1;
+                double z = 0; //// TODO Add PTZForm.ZValue1;
+                bool useZ = false; // TODO Add PTZForm.UseZ;
+                this.xyzLookAtTaskGenerator.GenerateXYZLookAtTask(x, y, z, useZ, messenger, sensorId, numSensors);
+            }
+            else if (command == "region")
+            {
+                double x = Properties.Settings.Default.startLongitude; /// TODO Add PTZForm.XValue1;
+                double y = Properties.Settings.Default.startLatitude; //// TODO Add PTZForm.YValue1;
+                double z = 0; //// TODO Add PTZForm.ZValue1;
+                bool useZ = false; // TODO Add PTZForm.UseZ;
+                this.regionTaskGenerator.Generate(x, y, z, useZ, messenger, sensorId, numSensors);
+            }
+            else
+            {
+                SendTaskLoop(command, sensorId, numSensors);
             }
         }
 
@@ -273,7 +282,8 @@ namespace SapientHldmmSimulator
         /// <param name="e"></param>
         private void SendPTZTaskClick(object sender, EventArgs e)
         {
-            SendCommand(true, 1);
+            int sensorId = int.Parse(Sensor_input.Text);
+            SendCommandOpenDialog(true, sensorId);
         }
 
 
