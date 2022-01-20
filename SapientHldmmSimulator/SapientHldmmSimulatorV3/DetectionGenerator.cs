@@ -82,8 +82,8 @@ namespace SapientHldmmSimulator
         /// there is a wait of 100ms between each send
         /// </summary>
         /// <param name="comms_connection">IConnection messenger object used to send messages over</param>
-        /// <param name="form">main windows form</param>
-        public void GenerateHLDetections(object comms_connection) //, ClientForm form)
+        /// <param name="form">main windows form</param> 
+        public void GenerateHLDetections(object comms_connection, TaskForm form)
         {
             var messenger = (IConnection)comms_connection;
 
@@ -199,10 +199,14 @@ namespace SapientHldmmSimulator
                 if (retval)
                 {
                     MessageCount++;
+                    // Added to pass SAPIENT_Test_Harness_Build_Note-O
+                    form.UpdateOutputWindow("Detection Sent");
                 }
                 else
                 {
                     Log.ErrorFormat("Send Detection Failed {0}", MessageCount);
+                    // Added to pass SAPIENT_Test_Harness_Build_Note-O
+                    form.UpdateOutputWindow("Send Detection Failed");
                 }
 
                 if (LoopMessages)

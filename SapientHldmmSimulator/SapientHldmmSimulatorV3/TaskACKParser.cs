@@ -6,6 +6,7 @@ namespace SapientHldmmSimulator
 {
     using log4net;
     using SapientServices.Data;
+    using System;
 
     /// <summary>
     /// Parser for Task Acknowledgement messages
@@ -17,7 +18,7 @@ namespace SapientHldmmSimulator
         /// </summary>
         private static readonly ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        public static void ParseTaskACK(string message)
+        public static void ParseTaskACK(string message, TaskForm form)
         {
             int messageCount = 0;
             int offset = 0;
@@ -45,6 +46,9 @@ namespace SapientHldmmSimulator
                             var id = (SensorTaskACK)ConfigXMLParser.Deserialize(typeof(SensorTaskACK), singleMessage);
                             messageCount++;
 
+                            // Added to pass SAPIENT_Test_Harness_Build_Note-O
+                            form.UpdateOutputWindow("SensorTaskACK: " + message + "\n");
+                            form.UpdateOutputWindow("Latency(ms):  " + (DateTime.UtcNow - id.timestamp).TotalMilliseconds);
                             Log.InfoFormat("{0}:SensorTaskACK Task ID: {1}:{2}:{3}", messageCount, id.taskID, id.status, id.reason);
                         }
 
