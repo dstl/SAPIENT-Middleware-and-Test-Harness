@@ -1,0 +1,25 @@
+2022-01-20 10:02:43,072 [1] INFO  SapientASMsimulator.Program
+
+2022-01-20 10:02:43,088 [1] INFO  SapientASMsimulator.Program SapientASMsimulator - Version 2.7.4.0
+2022-01-20 10:02:50,414 [127.0.0.1:14001 Client Receive Thread] INFO  SapientServices.Communication.SapientClient Connected To Server
+2022-01-20 10:03:08,894 [1] INFO  SapientASMsimulator.RegistrationGenerator Send Registration Succeeded
+2022-01-20 10:03:09,222 [127.0.0.1:14001 Client Receive Thread] INFO  SapientASMsimulator.ASMMainProcess SensorRegistrationACK Received
+2022-01-20 10:03:09,222 [127.0.0.1:14001 Client Receive Thread] INFO  SapientASMsimulator.ASMMainProcess ASM ID: 1 Latency(ms): 328.0809
+2022-01-20 10:03:14,502 [6] INFO  SapientASMsimulator.HeartbeatGenerator Sent StatusReport:0
+2022-01-20 10:03:31,764 [127.0.0.1:14001 Client Receive Thread] INFO  SapientASMsimulator.ASMMainProcess Task Message Received
+2022-01-20 10:03:31,764 [127.0.0.1:14001 Client Receive Thread] INFO  SapientASMsimulator.TaskMessage Task Message Received
+2022-01-20 10:03:31,795 [127.0.0.1:14001 Client Receive Thread] INFO  SapientASMsimulator.RegistrationGenerator Send Registration Succeeded
+2022-01-20 10:03:31,795 [127.0.0.1:14001 Client Receive Thread] INFO  SapientASMsimulator.TaskAckGenerator Send SensorTaskACK 1 Succeeded
+2022-01-20 10:03:31,842 [127.0.0.1:14001 Client Receive Thread] INFO  SapientASMsimulator.ASMMainProcess SensorRegistrationACK Received
+2022-01-20 10:03:31,842 [127.0.0.1:14001 Client Receive Thread] INFO  SapientASMsimulator.ASMMainProcess ASM ID: 1 Latency(ms): 62.4562
+2022-01-20 10:04:17,222 [7] INFO  SapientASMsimulator.AlertGenerator Send Alert:0
+2022-01-20 10:04:30,156 [127.0.0.1:14001 Client Receive Thread] INFO  SapientASMsimulator.ASMMainProcess AlertResponse Message Received
+2022-01-20 10:04:30,156 [127.0.0.1:14001 Client Receive Thread] INFO  SapientASMsimulator.ASMMainProcess AlertResponse alertID:0
+2022-01-20 10:04:30,156 [127.0.0.1:14001 Client Receive Thread] INFO  SapientASMsimulator.ASMMainProcess <?xml version="1.0"?>
+<AlertResponse>
+  <timestamp>2022-01-20T10:04:30.109783Z</timestamp>
+  <sourceID>1</sourceID>
+  <alertID>0</alertID>
+  <status>Acknowledge</status>
+  <reason>Reason</reason>
+</AlertResponse>

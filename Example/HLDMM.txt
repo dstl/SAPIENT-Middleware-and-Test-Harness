@@ -1,0 +1,28 @@
+2022-01-20 10:02:46,321 [1] INFO  SapientHldmmSimulator.Program
+
+2022-01-20 10:02:46,337 [1] INFO  SapientHldmmSimulator.Program SapientHldmmSimulator - Version 2.7.4.0
+2022-01-20 10:02:46,477 [1] INFO  SapientHldmmSimulator.TaskForm Port: 12002
+2022-01-20 10:02:48,524 [127.0.0.1:12002 Client Receive Thread] INFO  SapientServices.Communication.SapientClient Connected To Server
+2022-01-20 10:03:31,623 [6] INFO  SapientHldmmSimulator.TaskGenerator Sent Command:1 to SensorID:1
+2022-01-20 10:03:31,873 [127.0.0.1:12002 Client Receive Thread] INFO  SapientHldmmSimulator.TaskACKParser SensorTaskACK at:239
+2022-01-20 10:03:31,873 [127.0.0.1:12002 Client Receive Thread] INFO  SapientHldmmSimulator.TaskACKParser 1:SensorTaskACK Task ID: 1:Accepted:
+2022-01-20 10:03:58,960 [8] INFO  SapientHldmmSimulator.TaskGenerator Sent Command:2 to SensorID:10
+2022-01-20 10:03:58,992 [127.0.0.1:12002 Client Receive Thread] INFO  SapientHldmmSimulator.TaskACKParser SensorTaskACK at:213
+2022-01-20 10:03:58,992 [127.0.0.1:12002 Client Receive Thread] INFO  SapientHldmmSimulator.TaskACKParser 1:SensorTaskACK Task ID: 2:Rejected:No ASM with this ID
+2022-01-20 10:04:17,487 [127.0.0.1:12002 Client Receive Thread] INFO  SapientHldmmSimulator.TaskForm Alert Message Received
+2022-01-20 10:04:17,503 [127.0.0.1:12002 Client Receive Thread] INFO  SapientHldmmSimulator.TaskForm Alert alertID: 0 from sensor: 1
+2022-01-20 10:04:17,503 [127.0.0.1:12002 Client Receive Thread] INFO  SapientHldmmSimulator.TaskForm <?xml version="1.0"?>
+<Alert>
+  <timestamp>2022-01-20T10:04:17.2065798Z</timestamp>
+  <sourceID>1</sourceID>
+  <alertID>0</alertID>
+  <alertType>Information</alertType>
+  <status>Active</status>
+  <description>Text description of alert</description>
+  <location>
+    <X>565618</X>
+    <Y>5777612</Y>
+  </location>
+  <associatedFile type="image" url="testfile.jpg" />
+</Alert>
+2022-01-20 10:04:30,109 [1] INFO  SapientHldmmSimulator.TaskForm Send Alert Response Succeeded

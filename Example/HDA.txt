@@ -1,0 +1,83 @@
+2022-01-20 10:02:44,822 [1] INFO  SapientMiddleware.Program
+
+2022-01-20 10:02:44,853 [1] INFO  SapientMiddleware.Program SapientDataAgent - Version 2.7.4.0
+2022-01-20 10:02:44,884 [1] INFO  SapientMiddleware.Program Start Init Schemas
+2022-01-20 10:02:45,134 [1] INFO  SapientMiddleware.Program End Init Schemas
+2022-01-20 10:02:45,150 [1] INFO  SapientMiddleware.Program screenWidth = 1920 num windows = 8
+2022-01-20 10:02:45,150 [1] INFO  SapientMiddleware.Program screenHeight = 1040 num windows = 2
+2022-01-20 10:02:45,150 [1] INFO  SapientMiddleware.Program Window ID:0 x:0 y:0 windowX:0 windowY:0
+2022-01-20 10:02:46,899 [1] INFO  SapientDatabase.DatabaseCreator Database middleware_log Exists
+2022-01-20 10:02:47,352 [1] INFO  SapientDatabase.MiddlewareLogDatabase Created table connections
+2022-01-20 10:02:47,352 [1] INFO  SapientDatabase.MiddlewareLogDatabase Created table message_count
+2022-01-20 10:02:47,618 [1] INFO  SapientDatabase.DatabaseCreator Database sapientV3 Exists
+2022-01-20 10:02:47,618 [1] INFO  SapientMiddleware.Program HLDMM:12002
+2022-01-20 10:02:47,618 [1] INFO  SapientDatabase.DatabaseCreator Database sapientV3 Exists
+2022-01-20 10:02:48,493 [14000 Listener] INFO  SapientServices.Communication.SapientServer Waiting for a connection...
+2022-01-20 10:02:48,493 [12002 Listener] INFO  SapientServices.Communication.SapientServer Waiting for a connection...
+2022-01-20 10:02:48,493 [12003 Listener] INFO  SapientServices.Communication.SapientServer Waiting for a connection...
+2022-01-20 10:02:48,524 [12002 Listener] INFO  SapientServices.Communication.SapientServer Connection 1 Connected
+2022-01-20 10:02:48,524 [12002 Listener] INFO  SapientServices.Communication.SapientServer Waiting for a connection...
+2022-01-20 10:02:49,758 [14000 Listener] INFO  SapientServices.Communication.SapientServer Connection 1 Connected
+2022-01-20 10:02:49,758 [14000 Listener] INFO  SapientMiddleware.Program Client Socket ID 1 Connected, 1 connections
+2022-01-20 10:02:49,758 [14000 Listener] INFO  SapientServices.Communication.SapientServer Waiting for a connection...
+2022-01-20 10:02:53,523 [7] INFO  SapientDatabase.MiddlewareLogDatabase Log Database Latency, 0
+2022-01-20 10:02:58,537 [13] INFO  SapientDatabase.MiddlewareLogDatabase Log Database Latency, 0
+2022-01-20 10:03:03,552 [13] INFO  SapientDatabase.MiddlewareLogDatabase Log Database Latency, 0
+2022-01-20 10:03:08,566 [13] INFO  SapientDatabase.MiddlewareLogDatabase Log Database Latency, 0
+2022-01-20 10:03:08,972 [Server Receive Thread] INFO  SapientMiddleware.SapientMessageParser SensorRegistration found at index 19:24
+2022-01-20 10:03:08,972 [Server Receive Thread] INFO  SapientMiddleware.SapientMessageParser Null Terminator found
+2022-01-20 10:03:08,972 [Server Receive Thread] INFO  SapientMiddleware.SapientMessageParser SensorRegistration received
+2022-01-20 10:03:08,972 [Server Receive Thread] INFO  SapientMiddleware.HldmmDataAgentClientProtocol Sensor Registration Message Received
+2022-01-20 10:03:09,191 [Server Receive Thread] INFO  SapientMiddleware.SapientProtocol Sensor Registration Ack Forwarded
+2022-01-20 10:03:13,581 [13] INFO  SapientDatabase.MiddlewareLogDatabase Log Database Latency, 8
+2022-01-20 10:03:18,735 [13] INFO  SapientDatabase.MiddlewareLogDatabase Log Database Latency, 0
+2022-01-20 10:03:23,750 [7] INFO  SapientDatabase.MiddlewareLogDatabase Log Database Latency, 0
+2022-01-20 10:03:28,765 [13] INFO  SapientDatabase.MiddlewareLogDatabase Log Database Latency, 0
+2022-01-20 10:03:31,639 [Server Receive Thread] INFO  SapientMiddleware.SapientMessageParser SensorTask found at index 19:24
+2022-01-20 10:03:31,639 [Server Receive Thread] INFO  SapientMiddleware.SapientMessageParser Null Terminator found
+2022-01-20 10:03:31,639 [Server Receive Thread] INFO  SapientMiddleware.SapientMessageParser SensorTask received
+2022-01-20 10:03:31,639 [Server Receive Thread] INFO  SapientMiddleware.HldmmDataAgentTaskingProtocol Sensor Task Message Received
+2022-01-20 10:03:31,654 [Server Receive Thread] INFO  SapientMiddleware.SapientProtocol Sensor Task Forwarded
+2022-01-20 10:03:31,811 [Server Receive Thread] INFO  SapientMiddleware.SapientMessageParser SensorRegistration found at index 19:24
+2022-01-20 10:03:31,811 [Server Receive Thread] INFO  SapientMiddleware.SapientMessageParser Null Terminator found
+2022-01-20 10:03:31,811 [Server Receive Thread] INFO  SapientMiddleware.SapientMessageParser SensorRegistration received
+2022-01-20 10:03:31,811 [Server Receive Thread] INFO  SapientMiddleware.HldmmDataAgentClientProtocol Sensor Registration Message Received
+2022-01-20 10:03:31,811 [Server Receive Thread] INFO  SapientMiddleware.SapientProtocol Sensor Registration Ack Forwarded
+2022-01-20 10:03:31,857 [Server Receive Thread] INFO  SapientMiddleware.SapientMessageParser SensorTaskACK found at index 19:24
+2022-01-20 10:03:31,857 [Server Receive Thread] INFO  SapientMiddleware.SapientMessageParser Null Terminator found
+2022-01-20 10:03:31,857 [Server Receive Thread] INFO  SapientMiddleware.SapientMessageParser SensorTaskACK received
+2022-01-20 10:03:31,857 [Server Receive Thread] INFO  SapientMiddleware.HldmmDataAgentClientProtocol Sensor Task Ack Message Received
+2022-01-20 10:03:31,857 [Server Receive Thread] INFO  SapientMiddleware.SapientProtocol Sensor Task Ack Forwarded
+2022-01-20 10:03:33,779 [13] INFO  SapientDatabase.MiddlewareLogDatabase Log Database Latency, 11
+2022-01-20 10:03:38,840 [13] INFO  SapientDatabase.MiddlewareLogDatabase Log Database Latency, 0
+2022-01-20 10:03:41,887 [Server Receive Thread] INFO  SapientMiddleware.SapientMessageParser DetectionReport found at index 19:24
+2022-01-20 10:03:41,887 [Server Receive Thread] INFO  SapientMiddleware.SapientMessageParser Null Terminator found
+2022-01-20 10:03:41,887 [Server Receive Thread] INFO  SapientMiddleware.SapientMessageParser DetectionReport received
+2022-01-20 10:03:41,887 [Server Receive Thread] INFO  SapientMiddleware.HldmmDataAgentTaskingProtocol HL Detection Message Received:
+2022-01-20 10:03:42,777 [Server Receive Thread] INFO  SapientMiddleware.HldmmDataAgentTaskingProtocol DetectionReport Latency, 937.4, ms, 0, 0, 0, 0, 0, 0, 1, 0, -0
+2022-01-20 10:03:43,886 [7] INFO  SapientDatabase.MiddlewareLogDatabase Log Database Latency, 28
+2022-01-20 10:03:48,931 [7] INFO  SapientDatabase.MiddlewareLogDatabase Log Database Latency, 0
+2022-01-20 10:03:53,962 [13] INFO  SapientDatabase.MiddlewareLogDatabase Log Database Latency, 0
+2022-01-20 10:03:58,976 [Server Receive Thread] INFO  SapientMiddleware.SapientMessageParser SensorTask found at index 19:24
+2022-01-20 10:03:58,976 [Server Receive Thread] INFO  SapientMiddleware.SapientMessageParser Null Terminator found
+2022-01-20 10:03:58,976 [Server Receive Thread] INFO  SapientMiddleware.SapientMessageParser SensorTask received
+2022-01-20 10:03:58,976 [Server Receive Thread] INFO  SapientMiddleware.HldmmDataAgentTaskingProtocol Sensor Task Message Received
+2022-01-20 10:03:58,976 [13] INFO  SapientDatabase.MiddlewareLogDatabase Log Database Latency, 0
+2022-01-20 10:03:58,976 [Server Receive Thread] INFO  SapientMiddleware.SapientProtocol Sensor Task Ack Forwarded
+2022-01-20 10:04:04,022 [13] INFO  SapientDatabase.MiddlewareLogDatabase Log Database Latency, 28
+2022-01-20 10:04:09,083 [7] INFO  SapientDatabase.MiddlewareLogDatabase Log Database Latency, 0
+2022-01-20 10:04:14,098 [7] INFO  SapientDatabase.MiddlewareLogDatabase Log Database Latency, 0
+2022-01-20 10:04:17,456 [Server Receive Thread] INFO  SapientMiddleware.SapientMessageParser Alert found at index 19:24
+2022-01-20 10:04:17,456 [Server Receive Thread] INFO  SapientMiddleware.SapientMessageParser Null Terminator found
+2022-01-20 10:04:17,456 [Server Receive Thread] INFO  SapientMiddleware.SapientMessageParser Alert received
+2022-01-20 10:04:17,456 [Server Receive Thread] INFO  SapientMiddleware.HldmmDataAgentClientProtocol Alert Message Received:
+2022-01-20 10:04:17,472 [Server Receive Thread] INFO  SapientMiddleware.SapientProtocol Alert Forwarded
+2022-01-20 10:04:19,128 [7] INFO  SapientDatabase.MiddlewareLogDatabase Log Database Latency, 18
+2022-01-20 10:04:24,314 [13] INFO  SapientDatabase.MiddlewareLogDatabase Log Database Latency, 0
+2022-01-20 10:04:29,328 [7] INFO  SapientDatabase.MiddlewareLogDatabase Log Database Latency, 0
+2022-01-20 10:04:30,125 [Server Receive Thread] INFO  SapientMiddleware.SapientMessageParser AlertResponse found at index 19:24
+2022-01-20 10:04:30,125 [Server Receive Thread] INFO  SapientMiddleware.SapientMessageParser Null Terminator found
+2022-01-20 10:04:30,125 [Server Receive Thread] INFO  SapientMiddleware.SapientMessageParser AlertResponse received
+2022-01-20 10:04:30,125 [Server Receive Thread] INFO  SapientMiddleware.HldmmDataAgentTaskingProtocol Alert Response Message Received
+2022-01-20 10:04:30,125 [Server Receive Thread] INFO  SapientMiddleware.SapientProtocol Alert Response Forwarded
+2022-01-20 10:04:34,374 [7] INFO  SapientDatabase.MiddlewareLogDatabase Log Database Latency, 29
