@@ -15,5 +15,8 @@ Prior to compiling and running any of the components of the SAPIENT Middleware a
 ## Incompatibilities
 Version 2.7.4 of the SAPIENT Middleware and Test Harness is incompatible with a default installation of PostgreSQL 13. For the SAPIENT Middleware and Test Harness to initialise a database, create the associated tables and connect to the database, PostgreSQL 12 required.
 
+## Build
+For instructions on how to compile, run and test the SAPIENT Middleware and Test Harness, see the [SAPIENT Middleware and Test Harness Build Note](https://github.com/dstl/SAPIENT-Middleware-and-Test-Harness/blob/main/SAPIENT%20Test%20Harness%20Build%20Note.pdf).
+
 ## License
 Except where noted otherwise, the SAPIENT Middleware and Test Harness software is licensed under the Apache License, Version 2.0. Please see [License](LICENSE.txt) for details.
